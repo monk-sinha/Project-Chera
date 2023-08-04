@@ -68,7 +68,7 @@ class Doubly_Linked_List:
         return node
     
     def get(self, index):
-        if index < 0 or index > self.length:
+        if index < 0 or index >= self.length:
             return None
         node = self.head
         if index < self.length/2:
