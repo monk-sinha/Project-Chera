@@ -12,9 +12,11 @@
     display:flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .wrapper {
+    margin-top: 30px;
     padding: 20px;
     border-radius: 10px;
     background-color: rgba(256,256,256,0.4);
@@ -24,22 +26,35 @@
 }
 
 .output {
-    grid-column: 1 / -1;
+    grid-column: 1/-1;
     background-color: transparent;
     height: 80px;
     display: flex;
-    align-items: flex-end ;
+    align-items: flex-end;
     justify-content: flex-end;
+    flex-direction: column;
     padding: 10px;
     border-radius: 10px 10px 0 0;
     width: 500px;
     font-size: 40px;
     border-bottom: solid rgba(0,128,128,0.4);
     margin-bottom: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
 
 }
 
-.output .current-op {
+.current-op,
+.prev-op {
+    width: 100%;
+    text-align: end;
+    background-color: transparent;
+    border: none
+}
+
+.current-op {
+    height: 60px;
+    font-size: 50px;
 }
 
 .button {
@@ -68,3 +83,49 @@
     justify-content: space-between;
 }
 
+.button-op {
+    height: 60px;
+    width: 60px;
+    border-radius: 40px;
+    border: none;
+    margin: 3px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    color: rgb(23, 106, 55);
+    cursor: pointer;
+}
+
+.button-op:hover{
+    background-color: rgba(80,200,120,0.5);
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+    color:white;
+}
+
+.button-op:active {
+    background-color: rgba(80,200,120,0.9);
+    color: white;
+}
+
+.button-cancel {
+    height: 60px;
+    width: 60px;
+    border-radius: 40px;
+    border: none;
+    margin: 3px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(256,256,253);
+    cursor: pointer;
+}
+
+.button-cancel:hover{
+    background-color: rgb(200, 80, 80);
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+    color:white;
+}
+
+.button-cancel:active {
+    background-color: rgb(184, 35, 45);
+    color: white;
+}
