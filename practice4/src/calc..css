@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease-in;
 }
 
 .container {
@@ -15,6 +16,16 @@
     flex-direction: column;
 }
 
+.theme-toggle {
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    align-items: end;
+}
+
 .wrapper {
     margin-top: 30px;
     padding: 20px;
@@ -23,10 +34,10 @@
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
+    box-shadow: 8px 8px 15px rgba(0,0,0,0.3);
 }
 
 .output {
-    grid-column: 1/-1;
     background-color: transparent;
     height: 80px;
     display: flex;
@@ -39,9 +50,7 @@
     font-size: 40px;
     border-bottom: solid rgba(0,128,128,0.4);
     margin-bottom: 10px;
-    word-wrap: break-word;
-    word-break: break-all;
-
+    overflow-x: hidden;
 }
 
 .current-op,
@@ -52,18 +61,23 @@
     border: none
 }
 
+.prev-op {
+    height: 30px;
+    font-size: 20px;
+}
+
 .current-op {
-    height: 60px;
-    font-size: 50px;
+    height: 50px;
+    font-size: 40px;
 }
 
 .button {
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     border-radius: 40px;
     border: none;
     margin: 3px;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: bold;
     background-color: rgba(256,256,253,0);
     cursor: pointer;
@@ -84,16 +98,7 @@
 }
 
 .button-op {
-    height: 60px;
-    width: 60px;
-    border-radius: 40px;
-    border: none;
-    margin: 3px;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: transparent;
     color: rgb(23, 106, 55);
-    cursor: pointer;
 }
 
 .button-op:hover{
@@ -108,15 +113,7 @@
 }
 
 .button-cancel {
-    height: 60px;
-    width: 60px;
-    border-radius: 40px;
-    border: none;
-    margin: 3px;
-    font-size: 20px;
-    font-weight: bold;
     background-color: rgb(256,256,253);
-    cursor: pointer;
 }
 
 .button-cancel:hover{

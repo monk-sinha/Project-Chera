@@ -11,14 +11,81 @@ class Calculator {
         this.operation = undefined
     }
 
-    delete() {}
+    delete() {
+        this.currentOperand = this.currentOperand.toString().slice(0,-1)
+    }
+
     appendNumber(number) {
+        if(number == "." && this.currentOperand.includes('.')) return
         this.currentOperand = this.currentOperand.toString()+number.toString()
     }
-    chooseOperation(operation) {}
-    compute() {}
+
+    chooseOperation(operation) {
+        if(this.currentOperand === '') return
+        if(this.currentOperand !== ''){
+            this.compute()
+        }
+        this.operation = operation
+        this.prevOperand = this.currentOperand
+        this.currentOperand = ''
+    }
+
+    compute() {
+        let comp
+        const prev = parseFloat(this.prevOperand)
+        const current = parseFloat(this.currentOperand)
+        if(isNaN(prev) || isNaN(current)) return
+        switch(this.operation){
+            case '+':
+                comp = prev+current
+                break
+            case '-':
+                comp = prev-current
+                break
+            case '*':
+                comp = prev*current
+                break
+            case '/':
+               comp = prev/current
+               break
+            default: return
+        }
+        this.currentOperand = comp
+        this.operation = undefined
+        this.prevOperand = ''
+        
+    }
+
+    getDisplayNum(number){
+        const snum = number.toString()
+        const intDigits = parseFloat(snum.split('.')[0])
+        const decDigits = snum.split('.')[1]
+        let intDisplay
+        if(isNaN(intDisplay)){
+            intDisplay= ''
+        }
+        else{
+            intDisplay = intDigits.toLocaleString(('en'), {maximumFractionDigits: 0})
+
+        }
+        if(decDigits != null){
+            return `${intDisplay}.${decDigits}`
+        }
+        else{
+            return intDisplay
+        }
+    }
+
     updateDisplay() {
-        this.currentOperandTextElement.innerText = this.currentOperand
+        this.currentOperandTextElement.innerText = 
+            this.getDisplayNum(this.currentOperand)
+        if(this.operation != null){
+            this.previousOperandTextElement.innerText = 
+                `${this.getDisplayNum(this.prevOperand)}${this.operation}`
+        }
+        else{
+            this.previousOperandTextElement.innerText = ''
+        }
     }
 
 }
@@ -38,4 +105,26 @@ numberButtons.forEach(button => {
         calc.appendNumber(button.innerText)
         calc.updateDisplay()
     })
+})
+
+operatorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calc.chooseOperation(button.innerText)
+        calc.updateDisplay()
+    })
+})
+
+clearButton.addEventListener('click', () => {
+    calc.clear()
+    calc.updateDisplay()
+})
+
+deleteButton.addEventListener('click', () => {
+    calc.delete()
+    calc.updateDisplay()
+})
+
+equalButton.addEventListener('click', () => {
+    calc.compute()
+    calc.updateDisplay()
 })
