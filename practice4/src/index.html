@@ -8,29 +8,32 @@
         <script src="script.js" defer></script>
     </head>
     <body>
-        <div class="container">
-            <div class="header">
-                <div class="left"></div>
-                <p>Scientific Calc</p>
-                <button class="theme-toggle"></button>
-            </div>
             <div class="wrapper">
                 <div class="output">
                     <div class="prev-op" data-prev-op></div>
                     <div class="current-op" data-current-op></div>
                 </div>  
                 <div class="row">
+                    <button class="button" data-operator>ln</button>
+                    <button class="button" data-operator>log</button>
+                    <button class="button" data-number>e</button>
+                    <button class="button" data-number>π</button>
                     <button class="button button-cancel" data-clear>C</button>
                     <button class="button button-cancel" data-delete>DEL</button>
-                    <button class="button" data-operator>&#40</button>
-                    <button class="button" data-operator>&#41</button>
+                </div>  
+
+                <div class="row">
+                    <button class="button" data-operator>sqrt</button>
+                    <button class="button" data-operator>1/x</button>
+                    <button class="button" data-operator>exp</button>
+                    <button class="button" data-operator>cbrt</button>
                     <button class="button" data-operator>%</button>
                     <button class="button button-op" data-operator>/</button>
                 </div>
                     
                 <div class="row">
                     <button class="button" data-operator>sin</button>
-                    <button class="button" data-operator>sqrt</button>
+                    <button class="button" data-operator>x²</button>
                     <button class="button" data-number>7</button>
                     <button class="button" data-number>8</button>
                     <button class="button" data-number>9</button>
@@ -39,7 +42,7 @@
         
                 <div class="row">
                     <button class="button" data-operator>cos</button>
-                    <button class="button" data-operator>1/x</button>                       
+                    <button class="button" data-operator>x³</button>                       
                     <button class="button" data-number>4</button>
                     <button class="button" data-number>5</button>
                     <button class="button" data-number>6</button>
@@ -48,7 +51,7 @@
         
                 <div class="row">
                     <button class="button" data-operator>tan</button>
-                    <button class="button" data-operator>^</button>
+                    <button class="button" data-operator>x!</button>
                     <button class="button" data-number>1</button>
                     <button class="button" data-number>2</button>
                     <button class="button" data-number>3</button>
@@ -56,14 +59,14 @@
                 </div>
         
                 <div class="row">
-                    <button class="button" data-special>func</button>
-                    <button class="button" data-operator>log</button>
-                    <button class="button" data-number>e</button>
+                    <button class="theme-toggle"></button>
+                    <button class="button" data-operator>abs</button>
+                    <button class="button" data-number>00</button>
                     <button class="button" data-number>0</button>
                     <button class="button" data-number>.</button>
                     <button class="button button-op" data-equal>=</button>
                 </div>  
+                
             </div>
-        </div>
     </body>
 </html>
